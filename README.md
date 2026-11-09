@@ -1,6 +1,6 @@
 # efood · Checkout
 
-Projeto em React com Styled Components e React Router. A página inicial exibe os restaurantes e cada card abre o cardápio correspondente. Nesta etapa, o catálogo é carregado por fetch e o botão Comprar o produto abre os detalhes do prato. Adicione pratos pelo modal e remova itens pelo carrinho. O Redux mantém as compras e calcula o total em centavos.
+Catálogo da EBAC, modal de produto, carrinho com Redux e fluxo de entrega, pagamento e confirmação.
 
 ```sh
 npm ci
@@ -8,8 +8,6 @@ npm run dev
 npm run build
 ```
 
-O [arquivo de referência no Figma](https://www.figma.com/file/JjduV2Tg7I3TzYUUsees8b/efood) retornou acesso negado durante o desenvolvimento. As fotos são da [API do curso](https://api-ebac.vercel.app/api/efood/restaurantes).
+Abra um restaurante, adicione um prato e continue com a entrega. Use dados fictícios no formulário. O botão Finalizar pedido envia um POST à API didática da EBAC. Quando a API confirma o pedido, a tela mostra o número recebido e esvazia o carrinho.
 
-## Pedido de demonstração
-
-Abra um restaurante, adicione um prato e continue com a entrega. Use dados fictícios no formulário de entrega e pagamento. O botão Finalizar pedido envia um POST à API didática da EBAC. Após a confirmação, a tela mostra o número devolvido pela API e esvazia o carrinho.
+O [layout do Figma](https://www.figma.com/file/JjduV2Tg7I3TzYUUsees8b/efood) foi reproduzido a partir das capturas fornecidas. As fotos são da [API do curso](https://api-ebac.vercel.app/api/efood/restaurantes).
