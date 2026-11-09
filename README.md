@@ -1,6 +1,6 @@
-# efood · Catálogo e navegação
+# efood · API e modal de produto
 
-Projeto em React com Styled Components e React Router. A página inicial exibe os restaurantes e cada card abre o cardápio correspondente. Nesta etapa, o catálogo usa uma cópia dos dados públicos da EBAC.
+Projeto em React com Styled Components e React Router. A página inicial exibe os restaurantes e cada card abre o cardápio correspondente. Nesta etapa, o catálogo é carregado por fetch e o botão Comprar o produto abre os detalhes do prato.
 
 ```sh
 npm ci

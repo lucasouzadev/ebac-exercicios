@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import { HashRouter, Link, Route, Routes, useLocation, useParams } from 'react-router-dom'
 import { loadCatalog } from './catalog'
+import ProductDetails from './ProductDetails'
 import {
   Button, Container, Cover, Footer, Global, Grid, Header, Logo,
   MenuCard, Notice, RestaurantCard, SolidButton, Tags
@@ -32,6 +33,7 @@ function Home({ restaurants }) {
 }
 
 function Restaurant({ restaurants }) {
+  const [selected, setSelected] = useState(null)
   const { id } = useParams()
   const restaurant = restaurants.find(item => String(item.id) === id)
 
@@ -49,6 +51,7 @@ function Restaurant({ restaurants }) {
         <img src={product.foto} alt="" />
         <h2>{product.nome}</h2>
         <p>{product.descricao}</p>
+        <Button onClick={() => setSelected(product)}>Comprar o produto</Button>
       </MenuCard>)}</Grid>
     </main>
   </>
