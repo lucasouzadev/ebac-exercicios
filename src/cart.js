@@ -12,13 +12,14 @@ const cart = createSlice({
         items.push(payload)
       }
     },
+    clearCart() { return [] },
     removeItem(items, { payload }) {
       return items.filter(item => item.lineId !== payload)
     }
   }
 })
 
-export const { addItem, removeItem } = cart.actions
+export const { addItem, clearCart, removeItem } = cart.actions
 export const selectItems = state => state.cart
 export const selectTotal = state =>
   selectItems(state).reduce((total, item) => total + Math.round(item.preco * 100), 0) / 100

@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
 import Dialog from './Dialog'
+import Checkout from './Checkout'
+import { Button } from './styles'
 import { money } from './money'
-import { removeItem, selectItems, selectTotal } from './cart'
+import { clearCart, removeItem, selectItems, selectTotal } from './cart'
 
 const List = styled.ul`
   list-style: none; padding: 0; display: grid; gap: 12px;
@@ -20,8 +22,11 @@ export default function Cart({ onClose }) {
   const items = useSelector(selectItems)
   const total = useSelector(selectTotal)
   const dispatch = useDispatch()
+  const [step, setStep] = useState("cart")
+  const [busy, setBusy] = useState(false)
 
-  return <Dialog title="Carrinho" onClose={onClose} drawer>
+  return <Dialog title="Carrinho e pedido" onClose={onClose} drawer busy={busy}>
+    {step === "cart" && <>
     <h2>Carrinho</h2>
     {items.length === 0 && <p>Seu carrinho está vazio.</p>}
     <List>{items.map(item => <li key={item.lineId}>
@@ -30,5 +35,14 @@ export default function Cart({ onClose }) {
       <button type="button" aria-label={'Remover ' + item.nome} onClick={() => dispatch(removeItem(item.lineId))}>Remover</button>
     </li>)}</List>
     <Total><span>Valor total</span><span>{money(total)}</span></Total>
+    {items.length > 0 && <Button onClick={() => setStep("delivery")}>Continuar com a entrega</Button>}
+    </>}
+    <div hidden={step === "cart"}>
+      {step !== "cart" && <Checkout items={items} total={total} step={step} setStep={setStep}
+        busy={busy} setBusy={setBusy} onClose={onClose} onComplete={() => {
+          dispatch(clearCart())
+          setStep("confirmation")
+        }} />}
+    </div>
   </Dialog>
 }
