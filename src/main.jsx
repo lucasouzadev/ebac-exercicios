@@ -5,7 +5,7 @@ import { loadCatalog } from './catalog'
 import ProductDetails from './ProductDetails'
 import { Provider, useDispatch, useSelector } from 'react-redux'
 import { addItem, selectItems, store } from './cart'
-import Cart from './Cart'
+import Cart from './Cart.jsx'
 import {
   Button, Container, Cover, Footer, Global, Grid, Header, Logo,
   MenuCard, Notice, RestaurantCard, SolidButton, Tags
