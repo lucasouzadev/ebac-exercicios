@@ -1,0 +1,50 @@
+name: Publicar efood
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Compilar as quatro etapas
+        run: |
+          site="$RUNNER_TEMP/site"
+          mkdir -p "$site"
+          cp site/index.html "$site/index.html"
+          for branch in efood_layout efood_api efood_carrinho efood_checkout; do
+            git switch --detach "origin/$branch"
+            npm ci
+            npm run build
+            mkdir -p "$site/$branch"
+            cp -R dist/. "$site/$branch/"
+          done
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: ${{ runner.temp }}/site
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/deploy-pages@v4
+        id: deploy
