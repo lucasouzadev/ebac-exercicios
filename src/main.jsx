@@ -6,14 +6,11 @@ import ProductDetails from './ProductDetails'
 import { Provider, useDispatch, useSelector } from 'react-redux'
 import { addItem, selectItems, store } from './cart'
 import Cart from './Cart.jsx'
+import Brand from './Brand'
 import {
-  Button, Container, Cover, Footer, Global, Grid, Header, Logo,
+  Button, Container, Cover, Footer, Global, Grid, Header,
   MenuCard, Notice, RestaurantCard, SolidButton, Tags
 } from './styles'
-
-function Brand() {
-  return <Link to="/" aria-label="efood, início"><Logo>efood</Logo></Link>
-}
 
 function Home({ restaurants }) {
   return <>
@@ -90,7 +87,7 @@ function App() {
     <Route path="*" element={<main><Notice><h1>Página não encontrada</h1><Link to="/">Voltar ao início</Link></Notice></main>} />
   </Routes>
 
-  return <><Global />{page}<Footer><Brand /><p>O efood é uma plataforma de divulgação de restaurantes. A responsabilidade pela entrega é do restaurante selecionado.</p></Footer></>
+  return <><Global />{page}<Footer><Brand /><div className="social" aria-hidden="true"><span>◎</span><span>f</span><span>𝕏</span></div><p>O efood é uma plataforma de divulgação de restaurantes. A responsabilidade pela entrega é do restaurante selecionado.</p></Footer></>
 }
 
 createRoot(document.getElementById('root')).render(<Provider store={store}><HashRouter><App /></HashRouter></Provider>)

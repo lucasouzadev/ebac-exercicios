@@ -5,9 +5,9 @@ import { Button } from './styles'
 import { money } from './money'
 
 const Detail = styled.div`
-  display: grid; grid-template-columns: minmax(160px, 280px) 1fr; gap: 22px;
+  display: grid; grid-template-columns: minmax(160px, 280px) 1fr; gap: 24px;
   img { width: 100%; aspect-ratio: 1; object-fit: cover; }
-  p { margin: 12px 0; }
+  p { margin: 12px 0; color: #311212; }
   @media (max-width: 600px) {
     grid-template-columns: 1fr;
     img { max-height: 220px; }
