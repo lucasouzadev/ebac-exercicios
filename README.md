@@ -1,6 +1,6 @@
-# efood · API e modal de produto
+# efood · Carrinho
 
-Projeto em React com Styled Components e React Router. A página inicial exibe os restaurantes e cada card abre o cardápio correspondente. Nesta etapa, o catálogo é carregado por fetch e o botão Comprar o produto abre os detalhes do prato.
+Projeto em React com Styled Components e React Router. A página inicial exibe os restaurantes e cada card abre o cardápio correspondente. Nesta etapa, o catálogo é carregado por fetch e o botão Comprar o produto abre os detalhes do prato. Adicione pratos pelo modal e remova itens pelo carrinho. O Redux mantém as compras e calcula o total em centavos.
 
 ```sh
 npm ci

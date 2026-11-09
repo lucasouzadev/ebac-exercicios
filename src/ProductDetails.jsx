@@ -14,7 +14,7 @@ const Detail = styled.div`
   }
 `
 
-export default function ProductDetails({ product, onClose }) {
+export default function ProductDetails({ product, onClose, onAdd }) {
   return <Dialog title={product.nome} onClose={onClose}>
     <Detail>
       <img src={product.foto} alt="" />
@@ -23,7 +23,7 @@ export default function ProductDetails({ product, onClose }) {
         <p>{product.descricao}</p>
         <p>Serve {product.porcao}</p>
         <p><strong>{money(product.preco)}</strong></p>
-        <Button onClick={onClose}>Voltar ao cardápio</Button>
+        <Button onClick={onAdd}>Adicionar ao carrinho · {money(product.preco)}</Button>
       </div>
     </Detail>
   </Dialog>

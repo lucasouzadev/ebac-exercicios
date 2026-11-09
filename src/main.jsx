@@ -3,6 +3,9 @@ import { createRoot } from 'react-dom/client'
 import { HashRouter, Link, Route, Routes, useLocation, useParams } from 'react-router-dom'
 import { loadCatalog } from './catalog'
 import ProductDetails from './ProductDetails'
+import { Provider, useDispatch, useSelector } from 'react-redux'
+import { addItem, selectItems, store } from './cart'
+import Cart from './Cart'
 import {
   Button, Container, Cover, Footer, Global, Grid, Header, Logo,
   MenuCard, Notice, RestaurantCard, SolidButton, Tags
@@ -34,6 +37,9 @@ function Home({ restaurants }) {
 
 function Restaurant({ restaurants }) {
   const [selected, setSelected] = useState(null)
+  const [cartOpen, setCartOpen] = useState(false)
+  const count = useSelector(selectItems).length
+  const dispatch = useDispatch()
   const { id } = useParams()
   const restaurant = restaurants.find(item => String(item.id) === id)
 
@@ -41,7 +47,7 @@ function Restaurant({ restaurants }) {
 
   return <>
     <Header><Container as="nav" aria-label="Navegação principal">
-      <Link to="/">Restaurantes</Link><Brand /><span />
+      <Link to="/">Restaurantes</Link><Brand /><Button onClick={() => setCartOpen(true)}>Carrinho ({count})</Button>
     </Container></Header>
     <main>
       <Cover style={{ backgroundImage: 'linear-gradient(#0008,#0009), url("' + restaurant.capa + '")' }}>
@@ -87,4 +93,4 @@ function App() {
   return <><Global />{page}<Footer><Brand /><p>O efood é uma plataforma de divulgação de restaurantes. A responsabilidade pela entrega é do restaurante selecionado.</p></Footer></>
 }
 
-createRoot(document.getElementById('root')).render(<HashRouter><App /></HashRouter>)
+createRoot(document.getElementById('root')).render(<Provider store={store}><HashRouter><App /></HashRouter></Provider>)
