@@ -1,16 +1,10 @@
-# Exercícios de front-end · EBAC
+# Agenda de contatos
 
-Cada branch tem o projeto daquela entrega. Consulte o README da branch para rodar o exercício.
+Crie, edite e remova contatos com nome completo, e-mail e telefone. O Redux Toolkit mantém a lista durante a sessão e os Styled Components cuidam da interface.
 
-| Branch | Exercício |
-| --- | --- |
-| `exercicio_redux` | Agenda de contatos com React, Redux e Styled Components |
-| `exercicio_rtl` | Teste de inserção de comentários com React Testing Library |
-| `exercicio_cypress` | Inclusão, alteração e remoção de contatos com Cypress |
-| `efood_layout` | Catálogo e cardápios com React Router e Styled Components |
-| `efood_api` | Catálogo via API e modal de produto |
-| `efood_carrinho` | Carrinho com Redux e total calculado |
-| `efood_checkout` | Entrega, pagamento de demonstração e confirmação via API |
+```sh
+npm install
+npm run dev
+```
 
-O [projeto-base de RTL](https://github.com/ogiansouza/ebac_exercicio_rtl) também tem entrega em um fork próprio.
-
+Execute `npm run build` para gerar a versão de produção.
