@@ -8,4 +8,4 @@ npm run dev
 npm run build
 ```
 
-O [arquivo de referência no Figma](https://www.figma.com/file/JjduV2Tg7I3TzYUUsees8b/efood) retornou acesso negado durante o desenvolvimento. As fotos são da [API do curso](https://api-ebac.vercel.app/api/efood/restaurantes).
+O [arquivo de referência no Figma](https://www.figma.com/file/JjduV2Tg7I3TzYUUsees8b/efood) foi reproduzido a partir das capturas fornecidas. As fotos são da [API do curso](https://api-ebac.vercel.app/api/efood/restaurantes).
