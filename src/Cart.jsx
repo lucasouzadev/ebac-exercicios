@@ -37,12 +37,11 @@ export default function Cart({ onClose }) {
     <Total><span>Valor total</span><span>{money(total)}</span></Total>
     {items.length > 0 && <Button onClick={() => setStep("delivery")}>Continuar com a entrega</Button>}
     </>}
-    <div hidden={step === "cart"}>
+
       {step !== "cart" && <Checkout items={items} total={total} step={step} setStep={setStep}
         busy={busy} setBusy={setBusy} onClose={onClose} onComplete={() => {
           dispatch(clearCart())
           setStep("confirmation")
         }} />}
-    </div>
   </Dialog>
 }

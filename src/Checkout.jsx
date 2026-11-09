@@ -121,7 +121,7 @@ export default function Checkout({ items, total, step, setStep, onComplete, onCl
       </Pair>
       <Pair>
         <label>Mês de vencimento<input required name="month" type="number" min={1} max={12} /></label>
-        <label>Ano de vencimento<input required name="year" type="number" min={2026} max={2099} /></label>
+        <label>Ano de vencimento<input required name="year" type="number" min={new Date().getFullYear()} max={2099} /></label>
       </Pair>
       {error && <p role="alert">{error}</p>}
       <div className="actions">
