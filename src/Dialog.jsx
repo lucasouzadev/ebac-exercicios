@@ -5,7 +5,8 @@ const Surface = styled.dialog`
   color: white; background: #e66767; border: 0; padding: 32px;
   width: min(1024px, calc(100% - 28px)); max-width: none; max-height: 90dvh; overflow: auto;
   &::backdrop { background: #000c; }
-  &[data-drawer] { inset: 0 0 0 auto; margin: 0; width: min(360px, 100%); height: 100dvh; max-height: 100dvh; max-width: 100%; }
+  &[data-drawer] { inset: 0 0 0 auto; margin: 0; width: min(360px, 100%); padding: 16px 8px; height: 100dvh; max-height: 100dvh; max-width: 100%; }
+  &[data-drawer] .close { margin: 0 0 4px auto; }
   .close { display: block; margin: -15px -15px 6px auto; border: 0; background: transparent; color: white; font-size: 24px; cursor: pointer; }
 `
 
