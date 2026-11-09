@@ -1,16 +1,11 @@
-# Exercícios de front-end · EBAC
+# efood · Catálogo e navegação
 
-Cada branch tem o projeto daquela entrega. Consulte o README da branch para rodar o exercício.
+Projeto em React com Styled Components e React Router. A página inicial exibe os restaurantes e cada card abre o cardápio correspondente. Nesta etapa, o catálogo usa uma cópia dos dados públicos da EBAC.
 
-| Branch | Exercício |
-| --- | --- |
-| `exercicio_redux` | Agenda de contatos com React, Redux e Styled Components |
-| `exercicio_rtl` | Teste de inserção de comentários com React Testing Library |
-| `exercicio_cypress` | Inclusão, alteração e remoção de contatos com Cypress |
-| `efood_layout` | Catálogo e cardápios com React Router e Styled Components |
-| `efood_api` | Catálogo via API e modal de produto |
-| `efood_carrinho` | Carrinho com Redux e total calculado |
-| `efood_checkout` | Entrega, pagamento de demonstração e confirmação via API |
+```sh
+npm ci
+npm run dev
+npm run build
+```
 
-O [projeto-base de RTL](https://github.com/ogiansouza/ebac_exercicio_rtl) também tem entrega em um fork próprio.
-
+O [arquivo de referência no Figma](https://www.figma.com/file/JjduV2Tg7I3TzYUUsees8b/efood) retornou acesso negado durante o desenvolvimento. As fotos são da [API do curso](https://api-ebac.vercel.app/api/efood/restaurantes).
