@@ -1,5 +1,4 @@
-import { render, screen, within } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { fireEvent, render, screen, within } from '@testing-library/react';
 import PostComments from '.';
 
 it('insere dois comentários e mantém a ordem de publicação', () => {
@@ -12,8 +11,8 @@ it('insere dois comentários e mantém a ordem de publicação', () => {
 
     const messages = ['Gostei da publicação!', 'Obrigado por compartilhar.'];
     for (const message of messages) {
-        userEvent.type(input, message);
-        userEvent.click(submit);
+        fireEvent.change(input, { target: { value: message } });
+        fireEvent.click(submit);
         expect(input).toHaveValue('');
     }
 
