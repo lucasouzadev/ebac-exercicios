@@ -1,13 +1,4 @@
-const original = {
-  name: 'Marina Teste Cypress',
-  email: 'marina.cypress@example.com',
-  phone: '11987654321'
-}
-const updated = {
-  name: 'Marina Atualizada Cypress',
-  email: 'marina.atualizada@example.com',
-  phone: '11912345678'
-}
+let original, updated
 
 function fill(contact) {
   cy.get('input[placeholder="Nome"]').clear().type(contact.name)
@@ -32,7 +23,20 @@ function verify(contact) {
 }
 
 describe('Agenda de contatos da EBAC', () => {
-  beforeEach(() => cy.visit('/'))
+  beforeEach(() => {
+    const id = Date.now().toString(36) + Cypress._.random(1000, 9999)
+    original = {
+      name: 'Marina Teste ' + id,
+      email: 'marina.' + id + '@example.com',
+      phone: '11987654321'
+    }
+    updated = {
+      name: 'Marina Atualizada ' + id,
+      email: 'marina.atualizada.' + id + '@example.com',
+      phone: '11912345678'
+    }
+    cy.visit('/')
+  })
 
   it('inclui um contato com nome, e-mail e telefone', () => {
     addContact(original)
