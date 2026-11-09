@@ -56,6 +56,12 @@ function Restaurant({ restaurants }) {
         <p>{product.descricao}</p>
         <Button onClick={() => setSelected(product)}>Comprar o produto</Button>
       </MenuCard>)}</Grid>
+      {selected && <ProductDetails product={selected} onClose={() => setSelected(null)} onAdd={() => {
+        dispatch(addItem(selected))
+        setSelected(null)
+        setCartOpen(true)
+      }} />}
+      {cartOpen && <Cart onClose={() => setCartOpen(false)} />}
     </main>
   </>
 }
