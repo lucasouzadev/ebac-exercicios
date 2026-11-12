@@ -19,17 +19,17 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Compilar as quatro etapas
+      - name: Compilar o efood completo
         run: |
           site="$RUNNER_TEMP/site"
-          mkdir -p "$site"
-          cp site/index.html "$site/index.html"
-          for branch in efood_layout efood_api efood_carrinho efood_checkout; do
-            git switch --detach "origin/$branch"
-            npm ci
-            npm run build
-            mkdir -p "$site/$branch"
-            cp -R dist/. "$site/$branch/"
+          redirect="$RUNNER_TEMP/efood-redirect.html"
+          cp site/index.html "$redirect"
+          git switch --detach origin/efood_checkout
+          npm ci
+          npm run build -- --outDir "$site"
+          for path in efood_layout efood_api efood_carrinho efood_checkout; do
+            mkdir -p "$site/$path"
+            cp "$redirect" "$site/$path/index.html"
           done
       - uses: actions/upload-pages-artifact@v4
         with:

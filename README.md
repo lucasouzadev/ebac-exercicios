@@ -2,6 +2,8 @@
 
 Cada branch contém uma entrega independente. Consulte o README da branch para rodar o exercício.
 
+O catálogo, a modal de produto, o carrinho e o checkout estão na mesma publicação. [Abrir o efood completo](https://lucasouzadev.github.io/ebac-exercicios/)
+
 | Exercício | Código | Demonstração |
 | --- | --- | --- |
 | Agenda de contatos com React, Redux e Styled Components | [exercicio_redux](../../tree/exercicio_redux) | |
@@ -15,4 +17,4 @@ Cada branch contém uma entrega independente. Consulte o README da branch para r
 O checkout usa a API didática da EBAC. Para experimentar o formulário, preencha com dados fictícios.
 
 
-O workflow de GitHub Pages está preparado para execução manual quando a publicação estiver habilitada.
+O workflow manual de GitHub Pages compila `efood_checkout` e redireciona os endereços das etapas para o site completo.
