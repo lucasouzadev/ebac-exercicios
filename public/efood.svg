@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="126" height="58" viewBox="0 0 126 58">
   <rect x="2" y="2" width="122" height="54" fill="#fff8f2" stroke="#e66767" stroke-width="4"/>
-  <text x="10" y="38" fill="#a43b3b" font-family="Arial,sans-serif" font-weight="700" font-size="30" letter-spacing="-1.5">efood</text>
+  <text x="8" y="39" fill="#e66767" font-family="Arial,sans-serif" font-weight="700" font-size="33" letter-spacing="-1.5">efood</text>
   <g fill="none" stroke="#e66767" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
     <path d="M94 15v10q0 4 4 4t4-4V15m-4 0v27"/>
     <path d="M112 42V15q-5 4-5 12h5"/>

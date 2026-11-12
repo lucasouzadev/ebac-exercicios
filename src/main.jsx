@@ -8,13 +8,13 @@ import { addItem, selectItems, store } from './cart'
 import Cart from './Cart.jsx'
 import Brand from './Brand'
 import {
-  Button, Container, Cover, Footer, Global, Grid, Header,
+  Button, CartTrigger, Container, Cover, Footer, Global, Grid, Header,
   MenuCard, Notice, RestaurantCard, SolidButton, Tags
 } from './styles'
 
 function Home({ restaurants }) {
   return <>
-    <Header><Brand /><h1>Viva experiências gastronômicas no conforto da sua casa</h1></Header>
+    <Header $home><Brand /><h1>Viva experiências gastronômicas no conforto da sua casa</h1></Header>
     <main><Grid>
       {restaurants.map(restaurant => <RestaurantCard key={restaurant.id}>
         <img src={restaurant.capa} alt="" />
@@ -23,7 +23,7 @@ function Home({ restaurants }) {
           <span>{restaurant.tipo}</span>
         </Tags>
         <div>
-          <h2>{restaurant.titulo}<span aria-label={'Avaliação ' + restaurant.avaliacao}>★ {restaurant.avaliacao}</span></h2>
+          <h2>{restaurant.titulo}<span aria-label={'Avaliação ' + restaurant.avaliacao}>{restaurant.avaliacao}<b aria-hidden="true">★</b></span></h2>
           <p>{restaurant.descricao}</p>
           <SolidButton as={Link} to={'/restaurantes/' + restaurant.id}>Saiba mais</SolidButton>
         </div>
@@ -44,7 +44,11 @@ function Restaurant({ restaurants }) {
 
   return <>
     <Header><Container as="nav" aria-label="Navegação principal">
-      <Link to="/">Restaurantes</Link><Brand /><Button onClick={() => setCartOpen(true)}>Carrinho ({count})</Button>
+      <Link to="/">Restaurantes</Link>
+      <Brand />
+      <CartTrigger type="button" aria-haspopup="dialog" onClick={() => setCartOpen(true)}>
+        {count} {count === 1 ? 'produto' : 'produtos'} no carrinho
+      </CartTrigger>
     </Container></Header>
     <main>
       <Cover style={{ backgroundImage: 'linear-gradient(#0008,#0009), url("' + restaurant.capa + '")' }}>
@@ -54,7 +58,7 @@ function Restaurant({ restaurants }) {
         <img src={product.foto} alt="" />
         <h2>{product.nome}</h2>
         <p>{product.descricao}</p>
-        <Button onClick={() => setSelected(product)}>Comprar o produto</Button>
+        <Button type="button" aria-haspopup="dialog" onClick={() => setSelected(product)}>Adicionar ao carrinho</Button>
       </MenuCard>)}</Grid>
       {selected && <ProductDetails product={selected} onClose={() => setSelected(null)} onAdd={() => {
         dispatch(addItem(selected))
